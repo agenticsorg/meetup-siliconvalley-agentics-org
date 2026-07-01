@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SV Meetup Banner — drop-in component</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body{background:#FAF9F6;padding:48px 24px;font-family:'Archivo',Calibri,sans-serif}
+  /* ============================================================
+     SV MEETUP BANNER — mirrors the Agentics Retreat banner pattern:
+     rounded dark card, mono kicker with coral ">", bold headline,
+     mono body, solid coral CTA. Self-contained; scoped classes.
+     ============================================================ */
+  .svm-banner{
+    position:relative;max-width:1240px;margin:0 auto;border-radius:28px;overflow:hidden;
+    background:
+      radial-gradient(ellipse 90% 70% at 85% 10%, rgba(255,104,71,.20), transparent 55%),
+      linear-gradient(168deg,#0E1320 0%,#141B2E 52%,#1A2440 100%);
+    color:#fff;padding:72px 72px 68px;
+  }
+  /* node-grid motif (the Agentics dotted grid, dark variant) */
+  .svm-banner::before{content:"";position:absolute;inset:0;
+    background-image:radial-gradient(rgba(255,255,255,.12) 1px,transparent 1px);
+    background-size:46px 46px;
+    mask-image:linear-gradient(115deg,rgba(0,0,0,.9) 30%,rgba(0,0,0,.2));}
+  /* skyline silhouette hint along the bottom, echoing the Luma night-valley badge */
+  .svm-banner::after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;
+    background:linear-gradient(0deg,rgba(10,14,26,.85),transparent);
+    pointer-events:none;}
+  .svm-inner{position:relative;z-index:2;max-width:760px}
+  .svm-kicker{font-family:'IBM Plex Mono',Consolas,monospace;font-size:15px;letter-spacing:.18em;
+    text-transform:uppercase;color:#D6DAE4;margin-bottom:28px}
+  .svm-kicker b{color:#FF6847;font-weight:600;margin-right:10px}
+  .svm-title{font-weight:900;font-size:clamp(30px,4.6vw,52px);line-height:1.05;letter-spacing:-.02em;margin:0 0 20px}
+  .svm-title em{font-style:normal;color:#FF6847}
+  .svm-body{font-family:'IBM Plex Mono',Consolas,monospace;font-size:clamp(13.5px,1.4vw,16.5px);
+    line-height:1.7;color:#C7CCDA;max-width:60ch;margin:0 0 34px}
+  .svm-cta{display:inline-flex;align-items:center;gap:10px;
+    font-family:'IBM Plex Mono',Consolas,monospace;font-weight:600;font-size:17px;
+    background:#FF6847;color:#fff;text-decoration:none;padding:16px 30px;border-radius:6px;
+    transition:background .18s ease,transform .18s ease}
+  .svm-cta:hover{background:#E5502F;transform:translateY(-2px)}
+  .svm-free{display:inline-block;margin-left:16px;font-family:'IBM Plex Mono',monospace;
+    font-size:13px;color:#8E97AC;letter-spacing:.08em}
+  @media(max-width:640px){.svm-banner{padding:48px 28px;border-radius:20px}}
+</style>
+</head>
+<body>
+
+<!-- ======= COPY FROM HERE (self-contained with the .svm- styles above) ======= -->
+<section class="svm-banner" aria-label="Silicon Valley Agentics Foundation Meetup — July 23, 2026">
+  <div class="svm-inner">
+    <p class="svm-kicker"><b>&gt;</b> JUL 23, 2026 &nbsp;·&nbsp; SUNNYVALE, CA</p>
+    <h2 class="svm-title">Silicon Valley <em>Agentics</em> Meetup</h2>
+    <p class="svm-body">An evening with builders, founders, researchers, and investors at Plug and Play Tech Center — spotlighting ruflo, RuView, RuVector, and MetaHarness. Hosted by Reuven Cohen &amp; Jason La Barbera.</p>
+    <a class="svm-cta" href="https://luma.com/agentics-silicon-valley" target="_blank" rel="noopener noreferrer">Join — RSVP free →</a>
+    <span class="svm-free">6:00–9:00 PM PDT · FREE</span>
+  </div>
+</section>
+<!-- ======= END BANNER ======= -->
+
+</body>
+</html>
