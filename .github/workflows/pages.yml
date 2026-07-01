@@ -1,0 +1,44 @@
+name: Deploy static site to GitHub Pages
+
+# Standard static deploy — no build step. Publishes the repo root as-is.
+# NOTE: This is inert until GitHub Pages is enabled with Source = "GitHub Actions"
+# (repo Settings -> Pages). If we later host on Cloud Run instead, this workflow
+# can be deleted or left disabled with no effect on the site.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment; don't cancel an in-progress production deploy.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Publish the whole repo root. _design/ is gitignored so it never ships.
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

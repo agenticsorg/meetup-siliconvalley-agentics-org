@@ -1,0 +1,12 @@
+# Pristine design source (source of truth, kept out of the deployed site)
+_design/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+
+# Node/npm cruft — this is a zero-dependency static site, no package manager
+node_modules/
+package-lock.json
+package.json
