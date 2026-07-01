@@ -55,4 +55,4 @@ python3 -m http.server 8080
 
 ## Contact
 
-**Mat Mathews** — mat@agent86.ai — page owner.
+**Mat Mathews** — mat.mathews@agentics.org — page owner.
