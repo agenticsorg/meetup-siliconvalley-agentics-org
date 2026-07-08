@@ -17,7 +17,10 @@
 <meta property="og:description" content="A free evening of agentic AI — builders, founders, researchers, and investors at Plug and Play Tech Center, Sunnyvale. 6–9 PM PDT. Hosted by Reuven Cohen & Jason La Barbera.">
 <meta property="og:url" content="https://meetup.agentics.org/">
 <meta property="og:site_name" content="Agentics Foundation">
-<meta property="og:image" content="https://meetup.agentics.org/img/og-image.png">
+<meta property="og:image" content="https://meetup.agentics.org/img/badge-orange.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta property="og:image:alt" content="Agentics Foundation Silicon Valley — orange event badge over a Silicon Valley cityscape at night">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
@@ -46,7 +49,7 @@
       "addressCountry": "US"
     }
   },
-  "image": ["https://meetup.agentics.org/img/og-image.png"],
+  "image": ["https://meetup.agentics.org/img/badge-orange.jpg"],
   "description": "A free evening gathering of builders, founders, operators, researchers, investors, and enterprise leaders exploring the future of AI and Agentics. Spotlighting open-source projects RuFlo, RuView, RuVector, and MetaHarness.",
   "offers": {
     "@type": "Offer",
@@ -178,19 +181,26 @@ header{position:sticky;top:0;z-index:50;background:rgba(250,249,246,.92);backdro
   padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.04)}
 .chip b{color:var(--coral)}
 /* hero split: copy left, event badge right */
-.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
-.badge-wrap{position:relative;display:flex;justify-content:center}
-.badge-card{width:min(270px,100%);height:auto;align-self:center;position:relative;z-index:1;
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.badge-wrap{position:relative;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:center}
+.badge-card{width:min(480px,100%);height:auto;align-self:center;position:relative;z-index:1;
   border-radius:22px;transform:rotate(2.5deg);
   box-shadow:0 30px 70px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.10);
   transition:transform .35s ease}
 .badge-wrap:hover .badge-card{transform:rotate(0deg) scale(1.02)}
 .badge-wrap::before{content:"";position:absolute;inset:-8%;border-radius:26px;z-index:-1;
-  background:radial-gradient(circle at 50% 45%,rgba(255,104,71,.30),transparent 68%)}
+  background:radial-gradient(circle at 50% 45%,rgba(255,104,71,.18),transparent 68%)}
 .badge-pin{position:absolute;top:-14px;left:50%;transform:translateX(-50%);z-index:2;
   font-family:var(--mono);font-size:11px;letter-spacing:.16em;background:var(--coral);color:#fff;
   padding:6px 14px;border-radius:999px;box-shadow:0 6px 18px rgba(255,104,71,.45)}
-@media(max-width:880px){.hero-grid{grid-template-columns:1fr}.badge-wrap{margin-top:44px}.badge-card{width:min(225px,70%)}}
+/* cognitum co-presenter strip (under the badge) */
+.cognitum-block{display:flex;flex-direction:column;align-items:center;gap:7px;width:min(480px,100%)}
+.cognitum-cap{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:#8E97AC}
+.cognitum-strip{display:block;width:100%;height:68px;border-radius:12px;overflow:hidden;line-height:0;
+  border:1px solid rgba(255,255,255,.14);transition:transform .2s ease,border-color .2s ease}
+.cognitum-strip img{width:100%;height:100%;object-fit:cover;display:block}
+.cognitum-strip:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.30)}
+@media(max-width:880px){.hero-grid{grid-template-columns:1fr}.badge-wrap{margin-top:44px}.badge-card{width:min(384px,90%)}.cognitum-block{width:min(384px,90%)}}
 /* staggered load */
 .hero .tag,.hero h1,.hero .sub,.hero .cta-row,.hero .chips,.hero .badge-wrap{opacity:0;transform:translateY(14px);animation:rise .7s ease forwards}
 .hero h1{animation-delay:.08s}.hero .sub{animation-delay:.16s}.hero .cta-row{animation-delay:.24s}.hero .chips{animation-delay:.34s}.hero .badge-wrap{animation-delay:.2s}
@@ -243,8 +253,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(250,249,246,.92);backdro
 .hosts{background:#fff;border-top:1px solid var(--hairline)}
 .hgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:34px}
 .hcard{border:1px solid var(--hairline);border-radius:12px;padding:30px;background:var(--cream)}
-.hcard .init{width:64px;height:64px;border-radius:50%;background:var(--coral-tint);border:1.5px solid var(--coral);
-  display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:600;font-size:20px;color:var(--coral);margin-bottom:18px}
+.hcard .havatar{width:77px;height:77px;border-radius:50%;object-fit:cover;object-position:center top;
+  border:1.5px solid #FF6847;background:#FFF5F3;margin-bottom:18px;display:block}
 .hcard h3{font-size:22px;font-weight:800}
 .hcard .role{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--coral);margin:6px 0 12px}
 .hcard p{color:var(--gray);font-size:14.5px}
@@ -350,9 +360,16 @@ footer a{text-decoration:none}
       <div class="badge-wrap">
         <span class="badge-pin">FREE · JUL 23</span>
         <picture>
-          <source srcset="img/badge.webp" type="image/webp">
-          <img class="badge-card" src="img/badge.png" alt="Silicon Valley Agentics Meetup — official event badge over a night skyline of Silicon Valley" width="661" height="653" fetchpriority="high">
+          <source srcset="img/badge-orange.webp" type="image/webp">
+          <img class="badge-card" src="img/badge-orange.jpg" alt="Agentics Foundation Silicon Valley — official event badge, glowing orange shield over a Silicon Valley cityscape at night" width="1600" height="900" fetchpriority="high">
         </picture>
+        <div class="cognitum-block">
+          <span class="cognitum-cap">CO-PRESENTED BY</span>
+          <a class="cognitum-strip" href="https://cognitum.one" target="_blank" rel="noopener noreferrer"
+             aria-label="Co-presented by Cognitum One — visit cognitum.one">
+            <img src="img/cognitum.jpg" alt="Cognitum" loading="lazy" width="512" height="512">
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -434,13 +451,13 @@ footer a{text-decoration:none}
     <h2>Hosted by the people building the stack.</h2>
     <div class="hgrid">
       <div class="hcard">
-        <div class="init">RC</div>
+        <img class="havatar" src="img/hosts/ruv.png" alt="Reuven Cohen (rUv)" width="77" height="77" loading="lazy">
         <h3>Reuven Cohen (rUv)</h3>
         <div class="role">Founder, Agentics Foundation</div>
         <p>Creator of the rUvStack — ruflo, RuVector, RuView — and the technical foundation behind a global community of agentic engineers.</p>
       </div>
       <div class="hcard">
-        <div class="init">JL</div>
+        <img class="havatar" src="img/hosts/jason.png" alt="Jason La Barbera" width="77" height="77" loading="lazy">
         <h3>Jason La Barbera</h3>
         <div class="role">San Francisco Chapter Lead</div>
         <p>Leading the Agentics Foundation's Bay Area community and connecting Silicon Valley's builders to the global agentics movement.</p>
